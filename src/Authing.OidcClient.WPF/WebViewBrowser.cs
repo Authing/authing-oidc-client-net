@@ -1,5 +1,5 @@
 ﻿using IdentityModel.OidcClient.Browser;
-using Microsoft.Toolkit.Forms.UI.Controls;
+using Microsoft.Toolkit.Wpf.UI.Controls;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -58,7 +58,6 @@ namespace Authing.OidcClient
 
             if (options.DisplayMode == DisplayMode.Hidden)
             {
-                Console.WriteLine("123");
                 window.WindowState = WindowState.Minimized;
             }
             window.Show();

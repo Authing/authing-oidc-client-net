@@ -1,16 +1,19 @@
 ﻿using Authing.OidcClient;
 using System;
-using System.Windows.Forms;
+using System.Windows;
 
-namespace Winforms
+namespace WPF
 {
-    public partial class MainForm : Form
+    /// <summary>
+    /// MainWindow.xaml 的交互逻辑
+    /// </summary>
+    public partial class MainWindow : Window
     {
         private Action<string> print;
         private Action clear;
         private AuthingClient _client;
 
-        public MainForm()
+        public MainWindow()
         {
             InitializeComponent();
             Init();
@@ -18,7 +21,8 @@ namespace Winforms
 
         public void Init()
         {
-            _client = new AuthingClient(new AuthingClientOptions() {
+            _client = new AuthingClient(new AuthingClientOptions()
+            {
                 AppId = "5e72d72e3798fb03e1d57b13",
                 AppDomain = "111.authing.cn",
                 RedirectUri = "https://authing.cn/guide/oidc/callback",
@@ -28,13 +32,13 @@ namespace Winforms
             clear = () => TxtLog.Clear();
         }
 
-        private async void BtnLogin_Click(object sender, EventArgs e)
+        private async void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             clear();
             print("开始登录...");
 
             var result = await _client.LoginAsync();
-            
+
             if (result.IsError)
             {
                 print($"登录时出现错误，错误原因是：{result.Error}");
@@ -51,7 +55,7 @@ namespace Winforms
             }
         }
 
-        private async void BtnLogout_Click(object sender, EventArgs e)
+        private async void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
             clear();
             print("开始注销...");

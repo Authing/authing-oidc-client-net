@@ -54,7 +54,6 @@ namespace Authing.OidcClient
             window.Controls.Add(webView);
             if (options.DisplayMode == DisplayMode.Hidden)
             {
-                Console.WriteLine("123");
                 window.WindowState = FormWindowState.Minimized;
             }
             window.Show();
