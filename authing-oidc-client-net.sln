@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authing.OidcClient.Core", "src\Authing.OidcClient.Core\Authing.OidcClient.Core.csproj", "{A6F825DF-5A5F-4126-9395-890101C473DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authing.OidcClient.Core", "src\Authing.OidcClient.Core\Authing.OidcClient.Core.csproj", "{A6F825DF-5A5F-4126-9395-890101C473DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authing.OidcClient.Winforms", "src\Authing.OidcClient.Winforms\Authing.OidcClient.Winforms.csproj", "{9E6E4318-AE11-4EF7-83C9-B05AE388ADB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authing.OidcClient.WPF", "src\Authing.OidcClient.WPF\Authing.OidcClient.WPF.csproj", "{9192D410-95D9-4547-9465-56B09EE3FF50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A2BC88B5-4599-420B-912E-6E14CD04CC2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winforms", "test\Winforms\Winforms.csproj", "{E91ABA24-CEA7-468F-8323-4B8F1694A691}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +23,24 @@ Global
 		{A6F825DF-5A5F-4126-9395-890101C473DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6F825DF-5A5F-4126-9395-890101C473DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6F825DF-5A5F-4126-9395-890101C473DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E6E4318-AE11-4EF7-83C9-B05AE388ADB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E6E4318-AE11-4EF7-83C9-B05AE388ADB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E6E4318-AE11-4EF7-83C9-B05AE388ADB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E6E4318-AE11-4EF7-83C9-B05AE388ADB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9192D410-95D9-4547-9465-56B09EE3FF50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9192D410-95D9-4547-9465-56B09EE3FF50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9192D410-95D9-4547-9465-56B09EE3FF50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9192D410-95D9-4547-9465-56B09EE3FF50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E91ABA24-CEA7-468F-8323-4B8F1694A691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E91ABA24-CEA7-468F-8323-4B8F1694A691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E91ABA24-CEA7-468F-8323-4B8F1694A691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E91ABA24-CEA7-468F-8323-4B8F1694A691}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E91ABA24-CEA7-468F-8323-4B8F1694A691} = {A2BC88B5-4599-420B-912E-6E14CD04CC2B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3086B145-E629-4F3A-A994-47498A7687D4}

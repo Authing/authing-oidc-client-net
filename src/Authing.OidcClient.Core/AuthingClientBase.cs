@@ -1,4 +1,5 @@
-﻿using Authing.OidcClient.Authing.OidcClient;
+﻿using Authing.OidcClient;
+using IdentityModel.Client;
 using IdentityModel.OidcClient;
 using IdentityModel.OidcClient.Browser;
 using System;
@@ -37,11 +38,20 @@ namespace Authing.OidcClient
             return await OidcClient.LoginAsync(loginRequest, cancellationToken);
         }
 
-        public async Task<BrowserResultType> LogoutAsync(CancellationToken cancellationToken = default)
+        public async Task<BrowserResultType> LogoutAsync(object extraParameters = null, CancellationToken cancellationToken = default)
         {
-            var endSessionUrl = $"https://${_options.AppDomain}/login/profile/logout?app_id=${_options.AppId}&redirect_uri=${_options.PostLogoutRedirectUri}";
+            var logoutParameters = ObjectToDictionary(extraParameters);
+            logoutParameters["client_id"] = OidcClient.Options.ClientId;
+            logoutParameters["returnTo"] = OidcClient.Options.PostLogoutRedirectUri;
 
-            var browserOptions = new BrowserOptions(endSessionUrl, _options.PostLogoutRedirectUri ?? string.Empty);
+            var endSessionUrl = new RequestUrl($"https://{_options.AppDomain}/oauth/oidc/session/end").Create(logoutParameters);
+
+            var logoutRequest = new LogoutRequest();
+            var browserOptions = new BrowserOptions(endSessionUrl, _options.PostLogoutRedirectUri ?? string.Empty)
+            {
+                Timeout = TimeSpan.FromSeconds(logoutRequest.BrowserTimeout),
+                DisplayMode = logoutRequest.BrowserDisplayMode
+            };
             var result = await _options.Browser.InvokeAsync(browserOptions);
             return result.ResultType;
         }
@@ -75,8 +85,6 @@ namespace Authing.OidcClient
 
             if (options.BackchannelHandler != null)
                 oidcClientOptions.BackchannelHandler = options.BackchannelHandler;
-            else
-                oidcClientOptions.BackchannelHandler = new DefaultBackchannelHandler(oidcClientOptions);
 
             return oidcClientOptions;
         }

@@ -8,9 +8,9 @@ namespace Authing.OidcClient
     {
         public IBrowser Browser { get; set; }
 
-        public string AppId { get; private set; }
+        public string AppId { get; set; }
 
-        public string AppDomain { get; private set; }
+        public string AppDomain { get; set; }
 
         public string RedirectUri { get; set; }
 
