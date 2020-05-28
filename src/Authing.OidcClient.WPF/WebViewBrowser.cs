@@ -18,7 +18,7 @@ namespace Authing.OidcClient
             _shouldCloseWindow = shouldCloseWindow;
         }
 
-        public WebViewBrowser(string title = "登录中...", int width = 1024, int height = 768)
+        public WebViewBrowser(string title = "认证中...", int width = 1024, int height = 768)
             : this(() => new Window
             {
                 Name = "WebAuthentication",
@@ -56,6 +56,11 @@ namespace Authing.OidcClient
                     tcs.SetResult(new BrowserResult { ResultType = BrowserResultType.UserCancel });
             };
 
+            if (options.DisplayMode == DisplayMode.Hidden)
+            {
+                Console.WriteLine("123");
+                window.WindowState = WindowState.Minimized;
+            }
             window.Show();
             webView.Navigate(options.StartUrl);
 

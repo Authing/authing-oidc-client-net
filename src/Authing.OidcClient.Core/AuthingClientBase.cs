@@ -42,15 +42,15 @@ namespace Authing.OidcClient
         {
             var logoutParameters = ObjectToDictionary(extraParameters);
             logoutParameters["client_id"] = OidcClient.Options.ClientId;
-            logoutParameters["returnTo"] = OidcClient.Options.PostLogoutRedirectUri;
+            logoutParameters["redirect_uri"] = OidcClient.Options.PostLogoutRedirectUri;
 
-            var endSessionUrl = new RequestUrl($"https://{_options.AppDomain}/oauth/oidc/session/end").Create(logoutParameters);
+            var endSessionUrl = new RequestUrl($"https://{_options.AppDomain}/login/profile/logout").Create(logoutParameters);
 
             var logoutRequest = new LogoutRequest();
             var browserOptions = new BrowserOptions(endSessionUrl, _options.PostLogoutRedirectUri ?? string.Empty)
             {
                 Timeout = TimeSpan.FromSeconds(logoutRequest.BrowserTimeout),
-                DisplayMode = logoutRequest.BrowserDisplayMode
+                DisplayMode = DisplayMode.Hidden
             };
             var result = await _options.Browser.InvokeAsync(browserOptions);
             return result.ResultType;

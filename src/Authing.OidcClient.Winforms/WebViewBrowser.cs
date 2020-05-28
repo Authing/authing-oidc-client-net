@@ -16,7 +16,7 @@ namespace Authing.OidcClient
             _formFactory = formFactory;
         }
 
-        public WebViewBrowser(string title = "登录中...", int width = 1024, int height = 768)
+        public WebViewBrowser(string title = "认证中...", int width = 1024, int height = 768)
             : this(() => new Form
             {
                 Name = "WebAuthentication",
@@ -52,6 +52,11 @@ namespace Authing.OidcClient
 
 
             window.Controls.Add(webView);
+            if (options.DisplayMode == DisplayMode.Hidden)
+            {
+                Console.WriteLine("123");
+                window.WindowState = FormWindowState.Minimized;
+            }
             window.Show();
             webView.Navigate(options.StartUrl);
 
