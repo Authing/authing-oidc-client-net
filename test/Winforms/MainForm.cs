@@ -18,6 +18,7 @@ namespace Winforms
 
         public void Init()
         {
+            // 至少提供下面的四个参数
             _client = new AuthingClient(new AuthingClientOptions() {
                 AppId = "5e72d72e3798fb03e1d57b13",
                 AppDomain = "111.authing.cn",

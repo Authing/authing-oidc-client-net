@@ -1,5 +1,4 @@
-﻿using Authing.OidcClient;
-using IdentityModel.Client;
+﻿using IdentityModel.Client;
 using IdentityModel.OidcClient;
 using IdentityModel.OidcClient.Browser;
 using System;
@@ -12,6 +11,10 @@ using static IdentityModel.OidcClient.OidcClientOptions;
 
 namespace Authing.OidcClient
 {
+    /// <summary>
+    /// Authing OIDC Client 基类
+    /// 基于 <see cref="IdentityModel.OidcClient.OidcClient"/> 实现了登录和注销功能
+    /// </summary>
     public abstract class AuthingClientBase
     {
         private readonly AuthingClientOptions _options;
@@ -29,7 +32,13 @@ namespace Authing.OidcClient
             _options = options;
         }
 
-        public async Task<LoginResult> LoginAsync(object extraParameters = null, CancellationToken cancellationToken = default)
+        /// <summary>
+        /// 异步 OIDC 登录
+        /// </summary>
+        /// <param name="extraParameters">额外的 url query 参数，会解析成 Dictionary</param>
+        /// <param name="cancellationToken">用于取消任务的 token</param>
+        /// <returns>LoginResult 实例</returns>
+        public virtual async Task<LoginResult> LoginAsync(object extraParameters = null, CancellationToken cancellationToken = default)
         {
             var frontChannelExtraParameters = ObjectToDictionary(extraParameters);
             var loginRequest = new LoginRequest {
@@ -38,7 +47,13 @@ namespace Authing.OidcClient
             return await OidcClient.LoginAsync(loginRequest, cancellationToken);
         }
 
-        public async Task<BrowserResultType> LogoutAsync(object extraParameters = null, CancellationToken cancellationToken = default)
+        /// <summary>
+        /// 异步 OIDC 注销
+        /// </summary>
+        /// <param name="extraParameters">额外的 url query 参数，会解析成 Dictionary</param>
+        /// <param name="cancellationToken">用于取消任务的 token</param>
+        /// <returns>BrowserResultType 实例</returns>
+        public virtual async Task<BrowserResultType> LogoutAsync(object extraParameters = null, CancellationToken cancellationToken = default)
         {
             var logoutParameters = ObjectToDictionary(extraParameters);
             logoutParameters["client_id"] = OidcClient.Options.ClientId;
@@ -52,10 +67,15 @@ namespace Authing.OidcClient
                 Timeout = TimeSpan.FromSeconds(logoutRequest.BrowserTimeout),
                 DisplayMode = DisplayMode.Hidden
             };
-            var result = await _options.Browser.InvokeAsync(browserOptions);
+            var result = await _options.Browser.InvokeAsync(browserOptions, cancellationToken);
             return result.ResultType;
         }
 
+        /// <summary>
+        /// 通过 AuthingClientOptions 实例创建 OidcClientOptions 实例
+        /// </summary>
+        /// <param name="options">AuthingClientOptions 实例</param>
+        /// <returns>OidcClientOptions 实例</returns>
         private OidcClientOptions CreateOidcClientOptions(AuthingClientOptions options)
         {
             var scopes = options.Scope.Split(' ').ToList();
@@ -89,6 +109,11 @@ namespace Authing.OidcClient
             return oidcClientOptions;
         }
 
+        /// <summary>
+        /// 将任意类型转为字典
+        /// </summary>
+        /// <param name="values"></param>
+        /// <returns></returns>
         private Dictionary<string, string> ObjectToDictionary(object values)
         {
             if (values is Dictionary<string, string> dictionary)

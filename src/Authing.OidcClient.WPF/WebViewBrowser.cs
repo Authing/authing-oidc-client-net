@@ -10,14 +10,22 @@ namespace Authing.OidcClient
     public class WebViewBrowser : IBrowser
     {
         private readonly Func<Window> _windowFactory;
-        private readonly bool _shouldCloseWindow;
 
-        public WebViewBrowser(Func<Window> windowFactory, bool shouldCloseWindow = true)
+        /// <summary>
+        /// 实例化认证窗口
+        /// </summary>
+        /// <param name="formFactory">生成窗口的方法</param>
+        public WebViewBrowser(Func<Window> windowFactory)
         {
             _windowFactory = windowFactory;
-            _shouldCloseWindow = shouldCloseWindow;
         }
 
+        /// <summary>
+        /// 实例化认证窗口
+        /// </summary>
+        /// <param name="title">窗口标题</param>
+        /// <param name="width">宽度</param>
+        /// <param name="height">高度</param>
         public WebViewBrowser(string title = "认证中...", int width = 1024, int height = 768)
             : this(() => new Window
             {
@@ -43,10 +51,7 @@ namespace Authing.OidcClient
                 if (e.Uri.AbsoluteUri.StartsWith(options.EndUrl))
                 {
                     tcs.SetResult(new BrowserResult { ResultType = BrowserResultType.Success, Response = e.Uri.ToString() });
-                    if (_shouldCloseWindow)
-                        window.Close();
-                    else
-                        window.Content = null;
+                    window.Close();
                 }
             };
 
