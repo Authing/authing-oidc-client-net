@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<package>
+  <metadata>
+    <id>Authing.OidcClient.WinForms</id>
+    <version>1.0.0</version>
+    <authors>Authing</authors>
+    <owners>Authing</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/Authing/authing-oidc-client-net</projectUrl>
+    <icon>AuthingIcon.png</icon>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>快速集成 Authing OIDC 认证功能到客户端，可用于 Winforms 应用程序。</description>
+    <releaseNotes>
+      Version 1.0.0
+      - 支持登录和注销功能
+    </releaseNotes>
+    <copyright>Beijing Steamory Technology Co., Ltd.</copyright>
+    <tags>Authing OIDC WPF</tags>
+    <dependencies>
+      <group targetFramework="net462">
+        <dependency id="Authing.OidcClient.Core" version="1.0.0" />
+        <dependency id="Microsoft.Toolkit.Forms.UI.Controls.WebView" version="6.0.1"/>
+      </group>
+      <group targetFramework="netcoreapp3.1">
+        <dependency id="Authing.OidcClient.Core" version="1.0.0" />
+        <dependency id="Microsoft.Toolkit.Forms.UI.Controls.WebView" version="6.0.1"/>
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\src\Authing.OidcClient.WinForms\bin\Release\net462\Authing.OidcClient.dll" target="lib\net462" />
+    <file src="..\src\Authing.OidcClient.WinForms\bin\Release\net462\Authing.OidcClient.xml" target="lib\net462" />
+    <file src="..\src\Authing.OidcClient.WinForms\bin\Release\netcoreapp3.1\Authing.OidcClient.dll" target="lib\netcoreapp3.1" />
+    <file src="..\src\Authing.OidcClient.WinForms\bin\Release\netcoreapp3.1\Authing.OidcClient.xml" target="lib\netcoreapp3.1" />
+    <file src="..\build\AuthingIcon.png" />
+  </files>
+</package>

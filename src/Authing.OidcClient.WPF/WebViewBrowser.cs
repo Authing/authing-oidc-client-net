@@ -7,6 +7,9 @@ using System.Windows;
 
 namespace Authing.OidcClient
 {
+    /// <summary>
+    /// WPF 的认证窗口实现
+    /// </summary>
     public class WebViewBrowser : IBrowser
     {
         private readonly Func<Window> _windowFactory;
@@ -14,7 +17,7 @@ namespace Authing.OidcClient
         /// <summary>
         /// 实例化认证窗口
         /// </summary>
-        /// <param name="formFactory">生成窗口的方法</param>
+        /// <param name="windowFactory">生成窗口的方法</param>
         public WebViewBrowser(Func<Window> windowFactory)
         {
             _windowFactory = windowFactory;

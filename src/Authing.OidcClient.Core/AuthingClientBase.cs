@@ -27,6 +27,10 @@ namespace Authing.OidcClient
             }
         }
 
+        /// <summary>
+        /// 实例化
+        /// </summary>
+        /// <param name="options">OIDC 参数</param>
         public AuthingClientBase(AuthingClientOptions options)
         {
             _options = options;

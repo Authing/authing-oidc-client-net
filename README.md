@@ -1,8 +1,8 @@
-# Authing C# OIDC SDK
+# Authing OIDC SDK for .Net
 
 [Authing](https://authing.cn/) 是一个企业级身份认证提供商，其集成了 OAuth、LDAP、OIDC 等多种身份认证和授权解决方案。
 
-Authing C# OIDC SDK 是 Authing 提供的在 Windows 平台上进行 OIDC 登录的解决方案，
+Authing OIDC SDK for .Net 是 Authing 提供的在 Windows 平台上进行 OIDC 登录的解决方案，
 开发者可以在 Winforms、WPF 应用程序中快速接入，并使用其进行认证。
 
 ## 安装
