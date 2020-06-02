@@ -31,6 +31,8 @@
             this.BtnLogin = new System.Windows.Forms.Button();
             this.BtnLogout = new System.Windows.Forms.Button();
             this.TxtLog = new System.Windows.Forms.TextBox();
+            this.BtnCheck = new System.Windows.Forms.Button();
+            this.BtnRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnLogin
@@ -61,11 +63,33 @@
             this.TxtLog.Size = new System.Drawing.Size(649, 426);
             this.TxtLog.TabIndex = 2;
             // 
+            // BtnCheck
+            // 
+            this.BtnCheck.Location = new System.Drawing.Point(12, 92);
+            this.BtnCheck.Name = "BtnCheck";
+            this.BtnCheck.Size = new System.Drawing.Size(121, 34);
+            this.BtnCheck.TabIndex = 3;
+            this.BtnCheck.Text = "验证 token";
+            this.BtnCheck.UseVisualStyleBackColor = true;
+            this.BtnCheck.Click += new System.EventHandler(this.BtnCheck_Click);
+            // 
+            // BtnRefresh
+            // 
+            this.BtnRefresh.Location = new System.Drawing.Point(12, 132);
+            this.BtnRefresh.Name = "BtnRefresh";
+            this.BtnRefresh.Size = new System.Drawing.Size(121, 34);
+            this.BtnRefresh.TabIndex = 4;
+            this.BtnRefresh.Text = "刷新 token";
+            this.BtnRefresh.UseVisualStyleBackColor = true;
+            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnRefresh);
+            this.Controls.Add(this.BtnCheck);
             this.Controls.Add(this.TxtLog);
             this.Controls.Add(this.BtnLogout);
             this.Controls.Add(this.BtnLogin);
@@ -81,6 +105,8 @@
         private System.Windows.Forms.Button BtnLogin;
         private System.Windows.Forms.Button BtnLogout;
         private System.Windows.Forms.TextBox TxtLog;
+        private System.Windows.Forms.Button BtnCheck;
+        private System.Windows.Forms.Button BtnRefresh;
     }
 }
 

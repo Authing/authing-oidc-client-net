@@ -1,13 +1,16 @@
 ﻿using IdentityModel.Client;
 using IdentityModel.OidcClient;
 using IdentityModel.OidcClient.Browser;
+using IdentityModel.OidcClient.Results;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using static IdentityModel.OidcClient.OidcClientOptions;
+using Microsoft.IdentityModel.JsonWebTokens;
 
 namespace Authing.OidcClient
 {
@@ -73,6 +76,30 @@ namespace Authing.OidcClient
             };
             var result = await _options.Browser.InvokeAsync(browserOptions, cancellationToken);
             return result.ResultType;
+        }
+
+        /// <summary>
+        /// 验证 token 是否有效，并获取当前用户信息
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public virtual Task<UserInfoResult> GetUserInfoAsync(string accessToken, CancellationToken cancellationToken = default)
+        {
+            return OidcClient.GetUserInfoAsync(accessToken, cancellationToken);
+        }
+
+        /// <summary>
+        /// 刷新 accessToken
+        /// </summary>
+        /// <param name="refreshToken"></param>
+        /// <param name="extraParameters"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public virtual Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters = null, CancellationToken cancellationToken = default)
+        {
+            var refreshParameters = ObjectToDictionary(extraParameters);
+            return OidcClient.RefreshTokenAsync(refreshToken, refreshParameters, cancellationToken);
         }
 
         /// <summary>
