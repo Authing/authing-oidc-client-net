@@ -35,7 +35,7 @@ namespace Authing.OidcClient
             {
                 if (e.Url.AbsoluteUri.StartsWith(options.EndUrl))
                 {
-                    tcs.SetResult(new BrowserResult { ResultType = BrowserResultType.Success, Response = e.Uri.ToString() });
+                    tcs.SetResult(new BrowserResult { ResultType = BrowserResultType.Success, Response = e.Url.ToString() });
                 }
             };
 

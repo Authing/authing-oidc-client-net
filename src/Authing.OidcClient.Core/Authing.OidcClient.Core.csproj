@@ -3,14 +3,41 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Authing.OidcClient</RootNamespace>
+    <Authors>Authing</Authors>
+    <Description>快速集成 Authing OIDC 认证功能到客户端。</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>Beijing Steamory Technology Co., Ltd.</Copyright>
+    <PackageProjectUrl>https://github.com/Authing/authing-oidc-client-net</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Authing/authing-oidc-client-net</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <PackageIcon>AuthingIcon.png</PackageIcon>
+    <PackageTags>Authing OIDC</PackageTags>
+    <PackageReleaseNotes>Version 1.1.0
+      - 添加验证 Token 、刷新 Token 和获取用户信息功能
+Version 1.0.0
+      - 支持登录和注销功能</PackageReleaseNotes>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard2.0\Authing.OidcClient.Core.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\Authing.OidcClient.Core.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="IdentityModel.OidcClient" Version="3.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\build\AuthingIcon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

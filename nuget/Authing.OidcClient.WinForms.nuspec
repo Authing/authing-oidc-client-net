@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Authing.OidcClient.WinForms</id>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <authors>Authing</authors>
     <owners>Authing</owners>
     <license type="expression">MIT</license>
@@ -12,18 +12,20 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>快速集成 Authing OIDC 认证功能到客户端，可用于 Winforms 应用程序。</description>
     <releaseNotes>
+      Version 1.1.0
+      - 添加验证 Token 、刷新 Token 和获取用户信息功能
       Version 1.0.0
       - 支持登录和注销功能
     </releaseNotes>
     <copyright>Beijing Steamory Technology Co., Ltd.</copyright>
-    <tags>Authing OIDC WPF</tags>
+    <tags>Authing OIDC Winforms</tags>
     <dependencies>
       <group targetFramework="net462">
-        <dependency id="Authing.OidcClient.Core" version="1.0.0" />
+        <dependency id="Authing.OidcClient.Core" version="1.1.0" />
         <dependency id="Microsoft.Toolkit.Forms.UI.Controls.WebView" version="6.0.1"/>
       </group>
       <group targetFramework="netcoreapp3.1">
-        <dependency id="Authing.OidcClient.Core" version="1.0.0" />
+        <dependency id="Authing.OidcClient.Core" version="1.1.0" />
         <dependency id="Microsoft.Toolkit.Forms.UI.Controls.WebView" version="6.0.1"/>
       </group>
     </dependencies>
