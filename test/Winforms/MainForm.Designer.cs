@@ -32,7 +32,6 @@
             this.BtnLogout = new System.Windows.Forms.Button();
             this.TxtLog = new System.Windows.Forms.TextBox();
             this.BtnCheck = new System.Windows.Forms.Button();
-            this.BtnRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnLogin
@@ -60,6 +59,7 @@
             this.TxtLog.Location = new System.Drawing.Point(139, 12);
             this.TxtLog.Multiline = true;
             this.TxtLog.Name = "TxtLog";
+            this.TxtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.TxtLog.Size = new System.Drawing.Size(649, 426);
             this.TxtLog.TabIndex = 2;
             // 
@@ -73,22 +73,11 @@
             this.BtnCheck.UseVisualStyleBackColor = true;
             this.BtnCheck.Click += new System.EventHandler(this.BtnCheck_Click);
             // 
-            // BtnRefresh
-            // 
-            this.BtnRefresh.Location = new System.Drawing.Point(12, 132);
-            this.BtnRefresh.Name = "BtnRefresh";
-            this.BtnRefresh.Size = new System.Drawing.Size(121, 34);
-            this.BtnRefresh.TabIndex = 4;
-            this.BtnRefresh.Text = "刷新 token";
-            this.BtnRefresh.UseVisualStyleBackColor = true;
-            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.BtnRefresh);
             this.Controls.Add(this.BtnCheck);
             this.Controls.Add(this.TxtLog);
             this.Controls.Add(this.BtnLogout);
@@ -106,7 +95,6 @@
         private System.Windows.Forms.Button BtnLogout;
         private System.Windows.Forms.TextBox TxtLog;
         private System.Windows.Forms.Button BtnCheck;
-        private System.Windows.Forms.Button BtnRefresh;
     }
 }
 

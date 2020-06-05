@@ -23,7 +23,7 @@ namespace Winforms
             // 至少提供下面的四个参数
             _client = new AuthingClient(new AuthingClientOptions() {
                 AppId = "5e72d72e3798fb03e1d57b13",
-                AppDomain = "111.authing.cn",
+                AppDomain = "authing-net-sdk-demo.authing.cn",
                 RedirectUri = "https://authing.cn/guide/oidc/callback",
                 PostLogoutRedirectUri = "https://authing.cn/guide/oidc/callback",
             });
@@ -91,27 +91,6 @@ namespace Winforms
             }
 
             print("验证成功，access token 有效");
-        }
-
-        private async void BtnRefresh_Click(object sender, EventArgs e)
-        {
-            clear();
-            if (refreshToken == null)
-            {
-                print("请先登录");
-                return;
-            }
-
-            print($"当前 refresh token 为 {refreshToken}，正在刷新...");
-            var result = await _client.RefreshTokenAsync(refreshToken);
-
-            if (result.IsError)
-            {
-                print($"刷新失败，原因是：{result.Error}");
-                return;
-            }
-
-            print($"刷新成功，新的 access token 为：{result.AccessToken}");
         }
     }
 }
