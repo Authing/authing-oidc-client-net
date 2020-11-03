@@ -9,10 +9,10 @@ Authing OIDC SDK for .Net 是 Authing 提供的在 Windows 平台上进行 OIDC 
 
 - .NET Framework 4.6.2
 - Visual Studio 2017 或以上
-- Authing 账号，可以[在此注册](https://authing.cn/sign-up)
+- Authing 账号，可以[在此注册](https://console.authing.cn/register)
 
 
-首先，[登录](https://authing.cn/login) Authing 进入 [控制台](https://authing.cn/dashboard)，并在 `第三方登录`->`OIDC 应用` 中取得应用的 AppId、AppDomain 和 回调地址。
+首先，[登录](https://console.authing.cn/login) Authing 进入 [控制台](https://console.authing.cn)，并在 `第三方登录`->`OIDC 应用` 中取得应用的 AppId、AppDomain 和 回调地址。
 
 **为了更高的安全性，建议为客户端创建新的 OIDC 应用。**
 
